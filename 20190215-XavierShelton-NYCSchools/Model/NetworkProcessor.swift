@@ -59,9 +59,8 @@ class NetworkProcessor
             
                 }
                 
-                
             }else{
-                print("Error: \(error?.localizedDescription)")
+                print("Error: \(String(describing: error?.localizedDescription))")
             }
         }
         // resumes the dataTask for any suspensions
