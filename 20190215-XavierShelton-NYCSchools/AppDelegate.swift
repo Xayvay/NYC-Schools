@@ -16,6 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        //testing output
+//        let schoolURL = URL(string: "https://data.cityofnewyork.us/resource/s3k6-pzi2.json")!
+//        let networkProcessor = NetworkProcessor(url: schoolURL)
+//        networkProcessor.downloadJSONFromURL { (jsonDictionary) in
+//
+//            print(jsonDictionary)
+//        }
         return true
     }
 
