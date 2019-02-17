@@ -40,7 +40,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MainTableViewCell
         cell.textLabel?.numberOfLines = 0;
-        cell.schoolNameLabel?.text = Array(schoolInfo.keys)[indexPath.row]
+        let key = Array(schoolInfo.keys)[indexPath.row]
+        var schoolData = schoolInfo[key]
+         cell.schoolNameLabel?.text = schoolData!["school"]
         
         return(cell)
     }
@@ -57,7 +59,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         header.textLabel?.textColor = UIColor.white
     }
 
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return 75.0;//Choose your custom row height
+    }
     
     override func didReceiveMemoryWarning() {
         
@@ -73,11 +78,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             if let schools = schools{
                 //dispatchqueue so that its on the main queue
                 DispatchQueue.main.async{
-                    self.schoolInfo[schools.school!] = ["dbn": schools.dbn,
+                    self.schoolInfo[schools.dbn!] = ["dbn": schools.dbn,
                                                      "school" : schools.school,
                                                      "address" : schools.address,
                                                      "zip" : schools.zip,
-                                                     "state":schools.state] as? [String : String]
+                                                     "state":schools.state,
+                                                     "phone" : schools.phone,
+                                                     "email" : schools.email,
+                                                     "website" : schools.website] as? [String : String]
                     self.tableView.reloadData()
 
                 }
