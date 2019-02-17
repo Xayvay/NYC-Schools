@@ -12,17 +12,15 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
   
     @IBOutlet weak var tableView: UITableView!
-    var schoolNameArray = [String]();
-    var zipArray = [String]();
-    var dbnArray = [String]();
-    var addressArray = [String]()
-    var stateArray = [String]()
-    let list = ["milk","honey","bread"]
+    var schoolInfo = [String:[String: String]]();
+ 
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+         tableView.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
-        
+       
         populateData()
       
     }
@@ -36,15 +34,30 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return schoolNameArray.count
+        return schoolInfo.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MainTableViewCell
-        cell.schoolNameLabel.text = self.schoolNameArray[indexPath.row]
+        cell.textLabel?.numberOfLines = 0;
+        cell.schoolNameLabel?.text = Array(schoolInfo.keys)[indexPath.row]
         
         return(cell)
     }
+    
+    func tableView( _ tableView : UITableView,  titleForHeaderInSection section: Int)->String? {
+        return "NYC Schools"
+    }
+ 
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
+    {
+        let header = view as! UITableViewHeaderFooterView
+        view.tintColor = UIColor.black
+        header.textLabel?.font = UIFont(name: "Futura", size: 25)!
+        header.textLabel?.textColor = UIColor.white
+    }
+
+    
     
     override func didReceiveMemoryWarning() {
         
@@ -60,9 +73,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             if let schools = schools{
                 //dispatchqueue so that its on the main queue
                 DispatchQueue.main.async{
-                    self.schoolNameArray.append(schools.school!);
-                    self.zipArray.append(schools.zip!);
-                    self.dbnArray.append(schools.dbn!);
+                    self.schoolInfo[schools.school!] = ["dbn": schools.dbn,
+                                                     "school" : schools.school,
+                                                     "address" : schools.address,
+                                                     "zip" : schools.zip,
+                                                     "state":schools.state] as? [String : String]
                     self.tableView.reloadData()
 
                 }

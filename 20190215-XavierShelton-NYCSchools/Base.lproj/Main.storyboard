@@ -42,9 +42,9 @@
                                                         <constraint firstAttribute="height" constant="47" id="60g-0v-9Rv"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBA-Ce-6sH">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBA-Ce-6sH">
                                                     <rect key="frame" x="66" y="11" width="230" height="58"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="DamascusBold" family="Damascus" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -59,7 +59,7 @@
                                                 <constraint firstItem="XBA-Ce-6sH" firstAttribute="leading" secondItem="JxP-sw-I63" secondAttribute="trailing" constant="8" id="oGP-1M-BQS"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.28419306506849323" green="0.90080165600136997" blue="1" alpha="0.074673587328767124" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="almightImage" destination="JxP-sw-I63" id="cCs-3i-Ak1"/>
                                             <outlet property="schoolNameLabel" destination="XBA-Ce-6sH" id="1vP-0c-cyn"/>
