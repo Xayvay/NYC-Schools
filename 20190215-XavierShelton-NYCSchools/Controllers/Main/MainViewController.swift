@@ -8,6 +8,8 @@
 
 import UIKit
 
+var vSpinner: UIView?
+
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     
@@ -16,12 +18,17 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     var schoolInfo = [String:[String: String]]();
     //Created currentIndex to keep track of current index being pressed in Schools View controller
     var currentIndex = 0
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         // Calling PopulateData for any dditional setup after loading the view, typically from a nib.
-        populateData()
+        self.showSpinner(onView: self.view)
+        self.populateData()
+        //Dispatch after schedules the execution of a block of code and in this case allows our spinner to vanish
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+            // Put your code which should be executed with a delay here
+            self.removeSpinner()
+        })
         
     }
     
@@ -95,6 +102,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    
     func populateData(){
         let schoolService = SchoolService()
         schoolService.getSchools { (schools) in
@@ -120,6 +128,33 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                 }
             }
+        }
+    }
+    
+}
+
+/* The data doesnt seem to automatically be in correct order so I used a spinner extension that I recieved from this website:
+ http://brainwashinc.com/2017/07/21/loading-activity-indicator-ios-swift/ actually really cool functionality */
+extension UIViewController {
+    func showSpinner(onView : UIView) {
+        let spinnerView = UIView.init(frame: onView.bounds)
+        spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        let ai = UIActivityIndicatorView.init(style: .whiteLarge)
+        ai.startAnimating()
+        ai.center = spinnerView.center
+        
+        DispatchQueue.main.async {
+            spinnerView.addSubview(ai)
+            onView.addSubview(spinnerView)
+        }
+        
+        vSpinner = spinnerView
+    }
+    
+    func removeSpinner() {
+        DispatchQueue.main.async {
+            vSpinner?.removeFromSuperview()
+            vSpinner = nil
         }
     }
 }
