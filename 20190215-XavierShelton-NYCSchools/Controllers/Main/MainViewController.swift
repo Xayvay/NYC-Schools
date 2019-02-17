@@ -24,7 +24,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Calling PopulateData for any dditional setup after loading the view, typically from a nib.
         self.showSpinner(onView: self.view)
         self.populateData()
-        //Dispatch after schedules the execution of a block of code and in this case allows our spinner to vanish
+        //Dispatch after schedules the execution of a block of code instead of freezing the thread:
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
             // Put your code which should be executed with a delay here
             self.removeSpinner()
