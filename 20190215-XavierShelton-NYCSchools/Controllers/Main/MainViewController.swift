@@ -12,6 +12,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
   
     @IBOutlet weak var tableView: UITableView!
+    var schoolNames = [String]()
     var schoolInfo = [String:[String: String]]();
  
 
@@ -40,19 +41,25 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MainTableViewCell
         cell.textLabel?.numberOfLines = 0;
-        let key = Array(schoolInfo.keys)[indexPath.row]
-        var schoolData = schoolInfo[key]
-         cell.schoolNameLabel?.text = schoolData!["school"]
-        
+        let school = schoolNames[indexPath.row]
+         cell.schoolNameLabel?.text = school
+        let schoolKey = schoolInfo[school]
+        cell.cityStateLabel?.text = schoolKey!["city"]
+        let offerRate = schoolKey!["offer"]
+        let startIndex = offerRate!.index(offerRate!.startIndex, offsetBy: 2)
+        let endIndex = offerRate!.index(startIndex, offsetBy: 3)
+        cell.offersLabel?.text = "Offer Rate\n"
+        + "\(String(offerRate![startIndex..<endIndex]))"
         return(cell)
     }
     
     func tableView( _ tableView : UITableView,  titleForHeaderInSection section: Int)->String? {
-        return "NYC Schools"
+        return "Super Schools"
     }
  
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
     {
+        //Setting section header background color,font, and text color
         let header = view as! UITableViewHeaderFooterView
         view.tintColor = UIColor.black
         header.textLabel?.font = UIFont(name: "Futura", size: 25)!
@@ -61,7 +68,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 75.0;//Choose your custom row height
+        //Choose your custom row height
+        return 140.0;
     }
     
     override func didReceiveMemoryWarning() {
@@ -78,14 +86,19 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             if let schools = schools{
                 //dispatchqueue so that its on the main queue
                 DispatchQueue.main.async{
-                    self.schoolInfo[schools.dbn!] = ["dbn": schools.dbn,
+                    //I would prefer to make the dbn the key for [String[String:String]] but for readability purposes I will make the school name the key.
+                    self.schoolInfo[schools.school!] = ["dbn": schools.dbn,
                                                      "school" : schools.school,
                                                      "address" : schools.address,
                                                      "zip" : schools.zip,
                                                      "state":schools.state,
+                                                     "city" : schools.city,
                                                      "phone" : schools.phone,
                                                      "email" : schools.email,
+                                                     "offer" : schools.offerRate,
                                                      "website" : schools.website] as? [String : String]
+                    self.schoolNames = Array(self.schoolInfo.keys)
+                    self.schoolNames = self.schoolNames.sorted()
                     self.tableView.reloadData()
 
                 }

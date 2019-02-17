@@ -86,6 +86,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		673D2310221970CA00B0D9C5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				673D230C2219060E00B0D9C5 /* SATService.swift */,
+				6762A5C722186A1F00620B0F /* SchoolService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		673D2311221970ED00B0D9C5 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				6762A5C9221871AA00620B0F /* Schools.swift */,
+				673D230E2219063E00B0D9C5 /* SAT.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		673D23122219710D00B0D9C5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6762A59A2217442800620B0F /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6762A58A2217442800620B0F = {
 			isa = PBXGroup;
 			children = (
@@ -109,13 +135,13 @@
 		6762A5952217442800620B0F /* 20190215-XavierShelton-NYCSchools */ = {
 			isa = PBXGroup;
 			children = (
-				6762A5CD2218909000620B0F /* Controllers */,
-				6762A5C622174F1D00620B0F /* Model */,
-				6762A5962217442800620B0F /* AppDelegate.swift */,
-				6762A59A2217442800620B0F /* Main.storyboard */,
-				6762A59D2217442A00620B0F /* Assets.xcassets */,
-				6762A59F2217442A00620B0F /* LaunchScreen.storyboard */,
 				6762A5A22217442A00620B0F /* Info.plist */,
+				6762A5962217442800620B0F /* AppDelegate.swift */,
+				6762A59F2217442A00620B0F /* LaunchScreen.storyboard */,
+				6762A59D2217442A00620B0F /* Assets.xcassets */,
+				6762A5C622174F1D00620B0F /* Model */,
+				673D23122219710D00B0D9C5 /* View */,
+				6762A5CD2218909000620B0F /* Controllers */,
 			);
 			path = "20190215-XavierShelton-NYCSchools";
 			sourceTree = "<group>";
@@ -141,11 +167,9 @@
 		6762A5C622174F1D00620B0F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				673D2311221970ED00B0D9C5 /* Objects */,
+				673D2310221970CA00B0D9C5 /* Services */,
 				6762A5C422174E2800620B0F /* NetworkProcessor.swift */,
-				6762A5C722186A1F00620B0F /* SchoolService.swift */,
-				6762A5C9221871AA00620B0F /* Schools.swift */,
-				673D230C2219060E00B0D9C5 /* SATService.swift */,
-				673D230E2219063E00B0D9C5 /* SAT.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

@@ -18,6 +18,8 @@ class School
     let phone: String?
     let email: String?
     let website: String?
+    let offerRate: String?
+    let city: String?
     
     struct schoolKeys {
         static let school = "school_name"
@@ -28,6 +30,8 @@ class School
         static let phone = "phone_number"
         static let website = "website"
         static let email = "school_email"
+        static let offerRate = "offer_rate1"
+        static let city = "city"
     }
     
     init(schoolDictionary: [String:Any])
@@ -40,5 +44,7 @@ class School
         phone = schoolDictionary[schoolKeys.phone] as? String
         email = schoolDictionary[schoolKeys.email] as? String
         website = schoolDictionary[schoolKeys.website] as? String
+        offerRate = schoolDictionary[schoolKeys.offerRate] as? String
+        city = schoolDictionary[schoolKeys.city] as? String
     }
 }

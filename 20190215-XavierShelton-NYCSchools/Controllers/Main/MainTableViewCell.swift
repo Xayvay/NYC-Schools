@@ -10,6 +10,9 @@ import UIKit
 
 class MainTableViewCell: UITableViewCell {
 
+
+    @IBOutlet weak var offersLabel: UILabel!
+    @IBOutlet weak var cityStateLabel: UILabel!
     @IBOutlet weak var almightImage: UIImageView!
     @IBOutlet weak var schoolNameLabel: UILabel!
     
