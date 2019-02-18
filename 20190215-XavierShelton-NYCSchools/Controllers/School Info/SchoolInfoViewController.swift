@@ -107,8 +107,18 @@ class SchoolInfoViewController: UIViewController {
                 let longitude = Double(schoolInfo["lon"]!)
                 //Creating personal annotations
                 let annotation = MKPointAnnotation()
-                annotation.title = self.schoolInfo["school"]
-                annotation.coordinate = CLLocationCoordinate2DMake(latitude!,longitude!)
+                var fullAddress = ""
+        if let address = self.schoolInfo["address"]{
+            fullAddress = address
+        }
+        if let state  = self.schoolInfo["state"]{
+            fullAddress = fullAddress + ", " + state
+        }
+        if let zip = self.schoolInfo["zip"]{
+            fullAddress = fullAddress + " " + zip
+        }
+        annotation.coordinate = CLLocationCoordinate2DMake(latitude!,longitude!)
+        annotation.title = fullAddress
                 self.mapView.addAnnotation(annotation)
                 //Zoom into annotation location
                 let coordinate:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude!,longitude!)

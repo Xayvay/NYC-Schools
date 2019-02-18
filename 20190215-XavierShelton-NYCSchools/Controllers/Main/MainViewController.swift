@@ -25,7 +25,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.showSpinner(onView: self.view)
         self.populateData()
         //Dispatch after schedules the execution of a block of code instead of freezing the thread:
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
             // Put your code which should be executed with a delay here
             self.removeSpinner()
         })
@@ -82,6 +82,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        self.tableView.reloadData()
         currentIndex = indexPath.row
         self.performSegue(withIdentifier: "SchoolInfoVC", sender: self)
     }
