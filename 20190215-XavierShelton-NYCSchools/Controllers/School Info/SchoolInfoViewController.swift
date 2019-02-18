@@ -28,7 +28,7 @@ class SchoolInfoViewController: UIViewController {
     }
     var schoolInfo = [String:String]()
     var satScores = [String:[String:String]]()
-    var googleMapsAPIKey = "AIzaSyBlKrMI1gKvgchYdM7cpOq4svGEUW8TDng"
+    var googleMapsAPIKey = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
