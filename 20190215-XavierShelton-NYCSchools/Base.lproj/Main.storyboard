@@ -37,19 +37,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="School Name" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBA-Ce-6sH">
-                                                    <rect key="frame" x="5" y="0.0" width="284" height="73"/>
+                                                    <rect key="frame" x="5" y="0.0" width="328" height="73"/>
                                                     <fontDescription key="fontDescription" name="DamascusBold" family="Damascus" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Offers" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8go-yp-ZYg">
-                                                    <rect key="frame" x="251" y="81" width="38" height="32.333333333333343"/>
+                                                    <rect key="frame" x="295" y="81" width="38" height="32.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="City and State" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Mr-2r-DVz">
-                                                    <rect key="frame" x="5" y="70" width="238" height="54"/>
+                                                    <rect key="frame" x="5" y="70" width="282" height="54"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -130,7 +130,18 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HIY-ey-9Hy">
                                 <rect key="frame" x="0.0" y="194" width="414" height="202"/>
+                                <subviews>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dcy-pH-DyZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="202"/>
+                                    </mapView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="dcy-pH-DyZ" firstAttribute="leading" secondItem="HIY-ey-9Hy" secondAttribute="leading" id="Jgf-6F-GZU"/>
+                                    <constraint firstAttribute="trailing" secondItem="dcy-pH-DyZ" secondAttribute="trailing" id="PKV-vB-XUX"/>
+                                    <constraint firstItem="dcy-pH-DyZ" firstAttribute="top" secondItem="HIY-ey-9Hy" secondAttribute="top" id="QBL-Lb-gnp"/>
+                                    <constraint firstAttribute="bottom" secondItem="dcy-pH-DyZ" secondAttribute="bottom" id="sKE-rs-jEn"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lzs-ZO-Qzz">
                                 <rect key="frame" x="0.0" y="394" width="414" height="202"/>
@@ -203,13 +214,13 @@
                                 <rect key="frame" x="0.0" y="597" width="414" height="202"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Information" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TzW-S0-Aju">
-                                        <rect key="frame" x="8" y="7.9999999999999982" width="398" height="22.333333333333329"/>
+                                        <rect key="frame" x="8" y="8.0000000000000018" width="398" height="22.666666666666671"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZeC-Rr-3YQ">
-                                        <rect key="frame" x="0.0" y="125.66666666666661" width="414" height="20.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="125.66666666666663" width="414" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -222,7 +233,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9J-yJ-J5p">
-                                        <rect key="frame" x="0.0" y="67.666666666666629" width="414" height="20.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="67.333333333333371" width="414" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -280,6 +291,7 @@
                     </view>
                     <connections>
                         <outlet property="emailLabel" destination="g9J-yJ-J5p" id="mss-xx-lsp"/>
+                        <outlet property="mapView" destination="dcy-pH-DyZ" id="RZX-6o-YOl"/>
                         <outlet property="mathScoreLabel" destination="DKI-qk-zi3" id="R9c-oX-9w5"/>
                         <outlet property="phoneNumberLabel" destination="ZeC-Rr-3YQ" id="aSF-r5-b9q"/>
                         <outlet property="readingScoreLabel" destination="fJz-Gn-q9d" id="cof-ao-cU0"/>

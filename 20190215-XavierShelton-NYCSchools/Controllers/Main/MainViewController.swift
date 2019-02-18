@@ -119,7 +119,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                                                         "phone" : schools.phone,
                                                         "email" : schools.email,
                                                         "offer" : schools.offerRate,
-                                                        "website" : schools.website] as? [String : String]
+                                                        "website" : schools.website,
+                                                        "lat" : schools.lat,
+                                                        "lon" : schools.lon] as? [String : String]
                     //saving all the key values to an array
                     self.schoolNames = Array(self.schoolInfo.keys)
                     //sorting the key value arrays for better readability

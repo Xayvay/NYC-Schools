@@ -20,6 +20,8 @@ class School
     let website: String?
     let offerRate: String?
     let city: String?
+    let lat: String?
+    let lon: String?
     
     struct schoolKeys {
         static let school = "school_name"
@@ -32,6 +34,8 @@ class School
         static let email = "school_email"
         static let offerRate = "offer_rate1"
         static let city = "city"
+        static let lat = "latitude"
+        static let lon = "longitude"
     }
     
     init(schoolDictionary: [String:Any])
@@ -46,5 +50,7 @@ class School
         website = schoolDictionary[schoolKeys.website] as? String
         offerRate = schoolDictionary[schoolKeys.offerRate] as? String
         city = schoolDictionary[schoolKeys.city] as? String
+        lat = schoolDictionary[schoolKeys.lat] as? String
+        lon = schoolDictionary[schoolKeys.lon] as? String
     }
 }
