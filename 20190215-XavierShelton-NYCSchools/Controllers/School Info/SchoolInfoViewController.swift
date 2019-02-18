@@ -36,9 +36,15 @@ class SchoolInfoViewController: UIViewController {
         populateData()
         
         websiteButtonLabel.setTitle(schoolInfo["website"]!, for: .normal)
-        emailLabel.text = "Email: \(String(describing: schoolInfo["email"]))"
-        phoneNumberLabel.text = "Phone: \(String(describing: schoolInfo["phone"]))"
         
+        if let email = schoolInfo["email"]{
+            emailLabel.text = "Email: \(email)"
+        }
+        
+        if let phone = schoolInfo["phone"]{
+            phoneNumberLabel.text = "Phone: \(phone)"
+        }
+
         
     }
     
