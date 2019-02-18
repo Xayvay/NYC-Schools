@@ -37,19 +37,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="School Name" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBA-Ce-6sH">
-                                                    <rect key="frame" x="5" y="0.0" width="284" height="73"/>
+                                                    <rect key="frame" x="5" y="0.0" width="328" height="73"/>
                                                     <fontDescription key="fontDescription" name="DamascusBold" family="Damascus" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Offers" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8go-yp-ZYg">
-                                                    <rect key="frame" x="251" y="81" width="38" height="32.333333333333343"/>
+                                                    <rect key="frame" x="295" y="81" width="38" height="32.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="City and State" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Mr-2r-DVz">
-                                                    <rect key="frame" x="5" y="70" width="238" height="54"/>
+                                                    <rect key="frame" x="5" y="70" width="282" height="54"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -130,13 +130,25 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HIY-ey-9Hy">
                                 <rect key="frame" x="0.0" y="194" width="414" height="202"/>
+                                <subviews>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dcy-pH-DyZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="202"/>
+                                    </mapView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="dcy-pH-DyZ" firstAttribute="leading" secondItem="HIY-ey-9Hy" secondAttribute="leading" id="Jgf-6F-GZU"/>
+                                    <constraint firstAttribute="trailing" secondItem="dcy-pH-DyZ" secondAttribute="trailing" id="PKV-vB-XUX"/>
+                                    <constraint firstItem="dcy-pH-DyZ" firstAttribute="top" secondItem="HIY-ey-9Hy" secondAttribute="top" id="QBL-Lb-gnp"/>
+                                    <constraint firstAttribute="bottom" secondItem="dcy-pH-DyZ" secondAttribute="bottom" id="sKE-rs-jEn"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lzs-ZO-Qzz">
                                 <rect key="frame" x="0.0" y="394" width="414" height="202"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SAT Avg " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IA6-R8-UN8">
                                         <rect key="frame" x="0.0" y="8" width="414" height="22"/>
+                                        <color key="backgroundColor" red="0.86056385869999996" green="0.86056385869999996" blue="0.86056385869999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -178,7 +190,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.93628562179999997" green="0.93628562179999997" blue="0.93628562179999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="DKI-qk-zi3" firstAttribute="bottom" secondItem="lzs-ZO-Qzz" secondAttribute="bottomMargin" id="0a7-Hw-LAX"/>
                                     <constraint firstItem="DKI-qk-zi3" firstAttribute="top" secondItem="LOS-fy-utP" secondAttribute="bottom" id="2qz-K5-8mz"/>
@@ -203,9 +215,10 @@
                                 <rect key="frame" x="0.0" y="597" width="414" height="202"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Information" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TzW-S0-Aju">
-                                        <rect key="frame" x="8" y="7.9999999999999982" width="398" height="22.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="16" width="414" height="23"/>
+                                        <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZeC-Rr-3YQ">
@@ -228,19 +241,19 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="ZeC-Rr-3YQ" secondAttribute="trailing" id="1xF-k4-fur"/>
                                     <constraint firstItem="9MI-J2-jqf" firstAttribute="top" secondItem="ZeC-Rr-3YQ" secondAttribute="bottom" constant="18" id="30O-gy-zzG"/>
                                     <constraint firstItem="9MI-J2-jqf" firstAttribute="bottom" secondItem="E4k-av-8R0" secondAttribute="bottomMargin" id="3J9-ar-EpK"/>
                                     <constraint firstItem="ZeC-Rr-3YQ" firstAttribute="leading" secondItem="E4k-av-8R0" secondAttribute="leading" id="5eX-TX-a1g"/>
-                                    <constraint firstItem="TzW-S0-Aju" firstAttribute="leading" secondItem="E4k-av-8R0" secondAttribute="leadingMargin" id="Rn3-dH-Gc1"/>
+                                    <constraint firstItem="TzW-S0-Aju" firstAttribute="leading" secondItem="E4k-av-8R0" secondAttribute="leading" id="GSm-44-PCk"/>
                                     <constraint firstItem="ZeC-Rr-3YQ" firstAttribute="top" secondItem="g9J-yJ-J5p" secondAttribute="bottom" constant="37.670000000000002" id="Uih-xX-Szv"/>
+                                    <constraint firstItem="TzW-S0-Aju" firstAttribute="top" secondItem="E4k-av-8R0" secondAttribute="topMargin" constant="8" id="Vl9-Jb-BvP"/>
                                     <constraint firstItem="9MI-J2-jqf" firstAttribute="leading" secondItem="E4k-av-8R0" secondAttribute="leadingMargin" id="fzZ-Pq-Bu8"/>
+                                    <constraint firstAttribute="trailing" secondItem="TzW-S0-Aju" secondAttribute="trailing" id="oHo-mn-KFw"/>
                                     <constraint firstItem="g9J-yJ-J5p" firstAttribute="leading" secondItem="E4k-av-8R0" secondAttribute="leading" id="sbA-SN-M5Y"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="9MI-J2-jqf" secondAttribute="trailing" id="vrS-F8-O0r"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="TzW-S0-Aju" secondAttribute="trailing" id="xAM-qM-vYo"/>
-                                    <constraint firstItem="TzW-S0-Aju" firstAttribute="top" secondItem="E4k-av-8R0" secondAttribute="topMargin" id="y5x-Nz-Qof"/>
                                     <constraint firstAttribute="trailing" secondItem="g9J-yJ-J5p" secondAttribute="trailing" id="z3X-Bb-0X3"/>
                                 </constraints>
                             </view>
@@ -280,6 +293,7 @@
                     </view>
                     <connections>
                         <outlet property="emailLabel" destination="g9J-yJ-J5p" id="mss-xx-lsp"/>
+                        <outlet property="mapView" destination="dcy-pH-DyZ" id="RZX-6o-YOl"/>
                         <outlet property="mathScoreLabel" destination="DKI-qk-zi3" id="R9c-oX-9w5"/>
                         <outlet property="phoneNumberLabel" destination="ZeC-Rr-3YQ" id="aSF-r5-b9q"/>
                         <outlet property="readingScoreLabel" destination="fJz-Gn-q9d" id="cof-ao-cU0"/>
