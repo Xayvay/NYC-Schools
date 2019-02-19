@@ -21,6 +21,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         // Calling PopulateData for any dditional setup after loading the view, typically from a nib.
         self.showSpinner(onView: self.view)
         self.populateData()
@@ -29,7 +33,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             // Put your code which should be executed with a delay here
             self.removeSpinner()
         })
-        
     }
     
     
@@ -83,8 +86,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //Updating the current table item picked through index
         currentIndex = indexPath.row
-        //reloading the table again when clicked. May not be necessary but figured having the most recent updated data all the time on a dynamic table would look better
-        self.tableView.reloadData()
         self.performSegue(withIdentifier: "SchoolInfoVC", sender: self)
     }
     
