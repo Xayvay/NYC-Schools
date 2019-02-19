@@ -31,6 +31,7 @@ class NetworkProcessor
     {
         //request to download the data
         let request = URLRequest(url:self.url)
+        
         // data task for downloading data
         let dataTask = session.dataTask(with: request) { (data, response, error) in
             if error == nil{

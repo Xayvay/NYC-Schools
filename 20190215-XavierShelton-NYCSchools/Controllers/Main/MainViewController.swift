@@ -81,9 +81,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        self.tableView.reloadData()
+        //Updating the current table item picked through index
         currentIndex = indexPath.row
+        //reloading the table again when clicked. May not be necessary but figured having the most recent updated data all the time on a dynamic table would look better
+        self.tableView.reloadData()
         self.performSegue(withIdentifier: "SchoolInfoVC", sender: self)
     }
     
@@ -103,7 +104,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    
+// Populating the data for the Dictionary and school name array.
+    //TODO: Look for anyway to populate this data and their UI labels at the same time
     func populateData(){
         let schoolService = SchoolService()
         schoolService.getSchools { (schools) in

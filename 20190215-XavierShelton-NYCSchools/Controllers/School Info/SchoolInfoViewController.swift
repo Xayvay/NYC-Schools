@@ -59,7 +59,8 @@ class SchoolInfoViewController: UIViewController {
 
         
     }
-    
+
+    //Use the JSON Data to populate into UI
     func populateData(){
         let satService = SATService()
         satService.getSAT { (sat) in
@@ -100,7 +101,8 @@ class SchoolInfoViewController: UIViewController {
         }
     }
     }
-    
+
+//Search for the school location based off of that Latitude and longitude provided through the API call
     func schoolMapSearch(){
 
                 let latitude = Double(schoolInfo["lat"]!)

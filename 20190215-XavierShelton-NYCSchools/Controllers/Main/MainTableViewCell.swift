@@ -4,12 +4,12 @@
 //
 //  Created by Xavier Shelton on 2/16/19.
 //  Copyright © 2019 Xavier Shelton. All rights reserved.
-//
+
+/* A Table View Cell class to maintain all the UI in the main table view */
 
 import UIKit
 
 class MainTableViewCell: UITableViewCell {
-
 
     @IBOutlet weak var offersLabel: UILabel!
     @IBOutlet weak var cityStateLabel: UILabel!
