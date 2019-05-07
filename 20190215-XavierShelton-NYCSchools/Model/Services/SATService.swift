@@ -7,28 +7,37 @@
 //
 
 import Foundation
+import UIKit
 
 class SATService{
    
-    let satBaseUrl: URL?
+ 
+        let jsonURLString = "https://data.cityofnewyork.us/resource/f9bf-2cp4.json"
     
-    init()
-    {
-        satBaseUrl = URL(string: "https://data.cityofnewyork.us/resource/f9bf-2cp4.json")
-    }
     
     // This method will return the schools and have the completion handled
     func  getSAT(completion: @escaping (SAT?) -> Void)
     {
-        let networkProcessor = NetworkProcessor(url:satBaseUrl!)
-        networkProcessor.downloadJSONFromURL ({(jsonDictionary) in
-            //Due to having an array of objects in an object from JSON. We have to loop through all the object entries then store them in schoolDictionary
-            for avgSATScore in jsonDictionary!{
+        guard let url = URL(string: jsonURLString) else {return}
+
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
+            guard let data = data else {return}
+            
+            do{
+                let sATScore = try JSONDecoder().decode([SAT].self, from: data)
                 
-                let score = SAT(satDictionary: avgSATScore)
+
+                for avgSATScore in sATScore{
+                
+               let score = SAT(satDictionary: avgSATScore)
                 completion(score)
                 
             }
-        })
+            } catch let jsonError{
+                print ("Error serializing json:", jsonError)
+            }
+            }.resume()
     }
+
 }

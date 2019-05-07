@@ -11,25 +11,30 @@ import Foundation
 class SchoolService
 {
   
-    let schoolBaseURL: URL?
+ 
+        let jsonURLString = "https://data.cityofnewyork.us/resource/s3k6-pzi2.json"
     
-    init()
-    {
-        schoolBaseURL = URL(string: "https://data.cityofnewyork.us/resource/s3k6-pzi2.json")
-    }
     
     // This method will return the schools and have the completion handled
     func  getSchools(completion: @escaping (School?) -> Void)
     {
-        let networkProcessor = NetworkProcessor(url:schoolBaseURL!)
-        networkProcessor.downloadJSONFromURL ({(jsonDictionary) in
-            //Due to having an array of objects in an object from JSON. We have to loop through all the object entries then store them in schoolDictionary
-            for schoolEntry in jsonDictionary!{
-
-                    let school = School(schoolDictionary: schoolEntry)
-                    completion(school)
-
+        guard let url = URL(string: jsonURLString) else {return}
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
+            guard let data = data else {return}
+            
+            do{
+                let schools = try JSONDecoder().decode([School].self, from: data)
+                
+            for schoolEntry in schools{
+                
+                //let school = School(schoolDictionary: schoolEntry)
+                completion(schoolEntry)
+                }
+            } catch let jsonError{
+                print ("Error serializing json:", jsonError)
             }
-        })
+            }.resume()
     }
 }

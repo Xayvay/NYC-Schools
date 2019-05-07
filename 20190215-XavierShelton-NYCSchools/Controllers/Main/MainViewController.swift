@@ -114,18 +114,18 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 //dispatchqueue so that its on the main queue
                 DispatchQueue.main.async{
                     //I would prefer to make the dbn the key for [String[String:String]] but for readability purposes I will make the school name the key.
-                    self.schoolInfo[schools.school!] = ["dbn": schools.dbn,
-                                                        "school" : schools.school,
-                                                        "address" : schools.address,
+                    self.schoolInfo[schools.school_name!] = ["dbn": schools.dbn,
+                                                        "school" : schools.school_name,
+                                                        "address" : schools.primary_address_line_1,
                                                         "zip" : schools.zip,
-                                                        "state":schools.state,
+                                                        "state":schools.state_code,
                                                         "city" : schools.city,
-                                                        "phone" : schools.phone,
-                                                        "email" : schools.email,
-                                                        "offer" : schools.offerRate,
+                                                        "phone" : schools.phone_number,
+                                                        "email" : schools.school_email,
+                                                        "offer" : schools.offer_rate1,
                                                         "website" : schools.website,
-                                                        "lat" : schools.lat,
-                                                        "lon" : schools.lon] as? [String : String]
+                                                        "lat" : schools.latitude,
+                                                        "lon" : schools.longitude] as? [String : String]
                     //saving all the key values to an array
                     self.schoolNames = Array(self.schoolInfo.keys)
                     //sorting the key value arrays for better readability
