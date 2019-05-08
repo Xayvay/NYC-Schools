@@ -69,28 +69,28 @@ class SchoolInfoViewController: UIViewController {
                 DispatchQueue.main.async{
                     // setting the values for the avg scores
                     if(sat.dbn == self.schoolInfo["dbn"]){
-                    self.schoolNameLabel.text = sat.school
+                    self.schoolNameLabel.text = sat.school_name
 
-                    if let testTakers = sat.testTakers{
+                    if let testTakers = sat.num_of_sat_test_takers{
                         self.testTakerLabel.text = "# of test takers: \(testTakers)"
                     }else{
                         self.testTakerLabel.text = "N/A"
                     }
                     
-                    if let reading = sat.reading{
+                    if let reading = sat.sat_critical_reading_avg_score{
                         self.readingScoreLabel.text = "Reading: \(reading)"
 
                     }else{
                         self.readingScoreLabel.text = "N/A"
                     }
                     
-                    if let writing = sat.writing{
+                    if let writing = sat.sat_writing_avg_score{
                         self.writingScoreLabel.text = "Writing: \(writing)"
                     }else{
                         self.writingScoreLabel.text = "N/A"
                     }
                     
-                    if let math = sat.math{
+                    if let math = sat.sat_math_avg_score{
                         self.mathScoreLabel.text = "Math: \(math)"
                     }else{
                         self.mathScoreLabel.text = "N/A"

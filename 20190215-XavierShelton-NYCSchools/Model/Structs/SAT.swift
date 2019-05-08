@@ -9,29 +9,10 @@
 import Foundation
 
 class SAT:Decodable{
-    let school: String?
+    let school_name: String?
     let dbn: String?
-    let reading: String?
-    let math: String?
-    let writing: String?
-    let testTakers: String?
-    
-    struct satKeys {
-        static let school = "school_name"
-        static let dbn = "dbn"
-        static let testTakers = "num_of_sat_test_takers"
-        static let reading = "sat_critical_reading_avg_score"
-        static let math = "sat_math_avg_score"
-        static let writing = "sat_writing_avg_score"
-    }
-    
-    init(satDictionary: SAT)
-    {
-        school = satDictionary.school
-        dbn = satDictionary.dbn
-        testTakers = satDictionary.testTakers
-        reading = satDictionary.reading
-        math = satDictionary.math
-        writing = satDictionary.writing
-    }
+    let sat_critical_reading_avg_score: String?
+    let sat_math_avg_score: String?
+    let sat_writing_avg_score: String?
+    let num_of_sat_test_takers: String?
 }

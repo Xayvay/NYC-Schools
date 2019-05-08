@@ -27,9 +27,7 @@ class SchoolService
             do{
                 let schools = try JSONDecoder().decode([School].self, from: data)
                 
-            for schoolEntry in schools{
-                
-                //let school = School(schoolDictionary: schoolEntry)
+            for schoolEntry in schools{                
                 completion(schoolEntry)
                 }
             } catch let jsonError{

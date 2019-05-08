@@ -29,10 +29,7 @@ class SATService{
                 
 
                 for avgSATScore in sATScore{
-                
-               let score = SAT(satDictionary: avgSATScore)
-                completion(score)
-                
+                completion(avgSATScore)
             }
             } catch let jsonError{
                 print ("Error serializing json:", jsonError)
